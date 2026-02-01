@@ -1,0 +1,18 @@
+package com.me.store.service;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+@Service
+public class OrderService {
+
+    public OrderService(@Qualifier("paypalPaymentService") PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
+
+    private final PaymentService paymentService;
+
+    public void placeOrder() {
+        paymentService.processPayment(10);
+    }
+}
