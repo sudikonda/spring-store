@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderService {
 
-    public OrderService(@Qualifier("paypalPaymentService") PaymentService paymentService) {
+    public OrderService(@Qualifier("paypal") PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 

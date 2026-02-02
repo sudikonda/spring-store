@@ -3,7 +3,7 @@ package com.me.store.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("paypal")
 @Slf4j
 public class PaypalPaymentService implements PaymentService {
 
