@@ -14,24 +14,27 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "users")
+@Table(name = "addresses")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 @Builder
-public class User {
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "street", nullable = false)
+    private String street;
 
-    @Column(name = "email", nullable = false)
-    private String email;
+    @Column(name = "city")
+    private String city;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "zip")
+    private String zip;
+
+    @Column(name = "state")
+    private String state;
 }

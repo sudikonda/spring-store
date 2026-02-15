@@ -13,6 +13,9 @@ public class SpringStoreApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringStoreApplication.class, args);
+
+        User johnUser = User.builder().name("John").email("john@example.com").password("password").build();
+        System.out.println(johnUser);
     }
 
     @Bean

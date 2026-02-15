@@ -13,25 +13,30 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
+
 @Entity
-@Table(name = "users")
+@Table(name = "profiles")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 @Builder
-public class User {
+public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "bio", nullable = false)
+    private String bio;
 
-    @Column(name = "email", nullable = false)
-    private String email;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
+
+    @Column(name = "loyalty_points")
+    private Integer loyaltyPoints;
 }
