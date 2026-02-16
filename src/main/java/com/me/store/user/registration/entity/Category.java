@@ -5,9 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,36 +14,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "profiles")
+@Table(name = "categories")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Builder
-public class Profile {
+@ToString
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Byte id;
 
-    @Column(name = "bio", nullable = false)
-    private String bio;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    @Column(name = "date_of_birth")
-    private LocalDate dateOfBirth;
-
-    @Column(name = "loyalty_points")
-    private Integer loyaltyPoints;
-
-    @OneToOne
-    @JoinColumn(name = "id")
-    @MapsId
+    @OneToMany(mappedBy = "category")
     @ToString.Exclude
-    private User user;
+    private List<Product> products;
 }
