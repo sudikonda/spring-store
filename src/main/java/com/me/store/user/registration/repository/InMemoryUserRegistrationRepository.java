@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Slf4j
 @Repository
-public class InMemoryUserRepository implements UserRepository{
+public class InMemoryUserRegistrationRepository implements UserRegistrationRepository {
     private final Map<String, User> userMap = new HashMap<>();
 
     @Override
