@@ -16,6 +16,8 @@ public class SpringStoreApplication {
         userService.showRelatedEntities();
         userService.fetchAddresses();
 
+        userService.removeUser();
+
 
 
     }

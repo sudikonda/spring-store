@@ -45,4 +45,10 @@ public class UserService {
         Address address = addressRepository.findById(1L).orElseThrow();
         log.info(address.getCity());
     }
+
+    @Transactional
+    public void removeUser() {
+        User user = userRepository.findById(1L).orElseThrow();
+        userRepository.delete(user);
+    }
 }

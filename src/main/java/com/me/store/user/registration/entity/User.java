@@ -1,5 +1,6 @@
 package com.me.store.user.registration.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -46,7 +47,7 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @Builder.Default
     private List<Address> addresses = new ArrayList<>();
 
@@ -57,7 +58,7 @@ public class User {
     @Builder.Default
     private Set<Tag> tags = new HashSet<>();
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
     private Profile profile;
 
     @ManyToMany
