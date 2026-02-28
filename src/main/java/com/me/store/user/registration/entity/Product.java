@@ -40,10 +40,14 @@ public class Product {
     @Column(name = "price", nullable = false)
     private BigDecimal price;
 
+    @Column(name = "description")
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "wishlist",
             joinColumns = @JoinColumn(name = "product_id"),
